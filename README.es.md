@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="docs/banner.png" alt="Emotion Mirror: avisos de postura y de tiempo sentado desde tu webcam, en tu propio PC" width="100%">
+  <img src="docs/banner.gif" alt="Emotion Mirror: avisos de postura y de tiempo sentado desde tu webcam, en tu propio PC" width="100%">
 </p>
 
 # Emotion Mirror
