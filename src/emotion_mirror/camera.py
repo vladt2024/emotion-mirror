@@ -27,8 +27,11 @@ class Camera:
             cap.release()
             raise CameraError(
                 f"Could not open camera {self.index}. Check that no other app is using it. "
-                "On macOS, allow camera access for your terminal or IDE in "
-                "System Settings > Privacy & Security > Camera."
+                "Windows: Settings > Privacy & security > Camera, turn on camera access for apps "
+                "and desktop apps (if Python came from the Microsoft Store, also turn on 'Python 3.x' "
+                "in the app list). macOS: allow camera access for your terminal or IDE in "
+                "System Settings > Privacy & Security > Camera. "
+                "For another camera try --camera 1."
             )
         cap.set(cv2.CAP_PROP_FRAME_WIDTH, self.width)
         cap.set(cv2.CAP_PROP_FRAME_HEIGHT, self.height)

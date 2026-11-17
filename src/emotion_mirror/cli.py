@@ -99,6 +99,8 @@ def cmd_run(args: argparse.Namespace) -> int:
                     if args.dry_run:
                         print(f"[dry-run] {alert.rule_id}: {alert.text}", flush=True)
                     else:
+                        if args.verbose:
+                            print(f"[alert] {alert.rule_id}: {alert.text}", flush=True)
                         notifier.send(alert.title, alert.text)
     except KeyboardInterrupt:
         print("\nStopped.")
