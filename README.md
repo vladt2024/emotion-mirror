@@ -4,7 +4,32 @@ Local-first wellbeing copilot for people who work at a computer. It uses your we
 
 **Your video never leaves your PC and is never saved.**
 
-> Status: early development (pre-v0.1). Nothing here is stable yet.
+> Status: v0.1 (early). Posture, sitting-time nudges and calibration work in code and are unit-tested, but the camera pipeline has not been field-tested on real hardware yet. Expect to tune thresholds. NeuroBrix is not wired in yet (planned for v0.3); v0.1 uses message templates from the rules file.
+
+## Quick start
+
+Requires Python 3.10+ and a webcam.
+
+```bash
+git clone https://github.com/vladt2024/emotion-mirror.git
+cd emotion-mirror
+python -m venv .venv
+source .venv/bin/activate        # Windows: .venv\Scripts\activate
+pip install -e ".[dev]"
+
+emotion-mirror download-models   # once: fetches the two MediaPipe models (the only network use)
+emotion-mirror calibrate         # sit well for 10 seconds
+emotion-mirror run --verbose     # --verbose prints metrics every 5 s so you can tune thresholds
+```
+
+Useful options:
+
+- `emotion-mirror run --dry-run` prints nudges instead of showing notifications.
+- `emotion-mirror default-rules > my_rules.yaml`, edit it, then `emotion-mirror run --rules my_rules.yaml`.
+- Files live in `~/.emotion-mirror/` (set `EMOTION_MIRROR_HOME` to change it). Delete the folder to remove everything.
+- On macOS, allow camera access for your terminal or editor the first time.
+
+Run the tests (no camera needed): `pytest`.
 
 ## How it works
 

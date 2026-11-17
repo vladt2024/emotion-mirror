@@ -1,0 +1,54 @@
+# Emotion Mirror rules (v0.1). Copy this file, edit it, and run:
+#   emotion-mirror run --rules my_rules.yaml
+#
+# Each rule watches one metric:
+#   metric            neck_ratio_rel | tilt_dev | face_width_rel | sitting_minutes
+#   above / below     threshold (set exactly one)
+#   for_seconds       how long the condition must hold without interruption
+#   cooldown_minutes  minimum time before the same rule can fire again
+#   messages          one is picked at random
+#
+# Rules are checked in order and at most one nudge is shown at a time,
+# so put the most important rule first.
+
+settings:
+  max_per_hour: 4
+
+rules:
+  - id: sedentary
+    title: Time to move
+    metric: sitting_minutes
+    above: 50
+    for_seconds: 0
+    cooldown_minutes: 30
+    messages:
+      - "You have been sitting for almost an hour. Stand up and walk for two minutes."
+      - "Long sitting spell. Stretch your legs and get some water."
+
+  - id: slouch
+    title: Posture check
+    metric: neck_ratio_rel
+    below: 0.85
+    for_seconds: 120
+    cooldown_minutes: 20
+    messages:
+      - "Your head has drifted forward. Roll your shoulders back and lengthen your neck."
+      - "Slouch detected. Sit back, feet flat, screen at eye level."
+
+  - id: shoulder_tilt
+    title: Posture check
+    metric: tilt_dev
+    above: 8
+    for_seconds: 120
+    cooldown_minutes: 20
+    messages:
+      - "One shoulder is higher than the other. Level them and relax your arms."
+
+  - id: too_close
+    title: Screen distance
+    metric: face_width_rel
+    above: 1.25
+    for_seconds: 90
+    cooldown_minutes: 20
+    messages:
+      - "You are leaning toward the screen. Sit back about an arm's length."
