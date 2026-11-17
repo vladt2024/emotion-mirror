@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="docs/banner.gif" alt="Emotion Mirror: posture and sitting-time nudges from your webcam, on your own PC" width="100%">
+</p>
+
 # Emotion Mirror
 
 [Español](README.es.md)

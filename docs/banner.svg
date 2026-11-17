@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="640" viewBox="0 0 1280 640" font-family="Inter, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0a1b26"/>
+      <stop offset="1" stop-color="#123541"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.5" cy="0.45" r="0.5">
+      <stop offset="0" stop-color="#5eead4" stop-opacity="0.22"/>
+      <stop offset="1" stop-color="#5eead4" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="dots" width="32" height="32" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1.2" fill="#5eead4" fill-opacity="0.10"/>
+    </pattern>
+    <clipPath id="frame"><rect width="1280" height="640"/></clipPath>
+  </defs>
+
+  <g clip-path="url(#frame)">
+    <rect width="1280" height="640" fill="url(#bg)"/>
+    <rect width="1280" height="640" fill="url(#dots)"/>
+    <ellipse cx="980" cy="330" rx="330" ry="330" fill="url(#glow)"/>
+
+    <!-- mirror axis -->
+    <line x1="980" y1="70" x2="980" y2="640" stroke="#5eead4" stroke-opacity="0.35" stroke-width="1.5" stroke-dasharray="6 8"/>
+
+    <!-- slouched ghost (what the app notices) -->
+    <circle cx="980" cy="300" r="72" fill="none" stroke="#fb923c" stroke-opacity="0.75" stroke-width="2.5" stroke-dasharray="7 7"/>
+    <line x1="906" y1="300" x2="880" y2="424" stroke="#fb923c" stroke-opacity="0.6" stroke-width="2" stroke-dasharray="4 6"/>
+    <line x1="1054" y1="300" x2="1080" y2="424" stroke="#fb923c" stroke-opacity="0.6" stroke-width="2" stroke-dasharray="4 6"/>
+    <circle cx="906" cy="300" r="7" fill="#0a1b26" stroke="#fb923c" stroke-width="3"/>
+    <circle cx="1054" cy="300" r="7" fill="#0a1b26" stroke="#fb923c" stroke-width="3"/>
+
+    <!-- upright figure (your calibrated baseline) -->
+    <path d="M 820 640 C 826 520 846 444 880 424 L 936 408 L 1024 408 L 1080 424 C 1114 444 1134 520 1140 640 Z"
+          fill="#5eead4" fill-opacity="0.08" stroke="#5eead4" stroke-opacity="0.45" stroke-width="2"/>
+    <line x1="948" y1="318" x2="938" y2="408" stroke="#5eead4" stroke-opacity="0.45" stroke-width="2"/>
+    <line x1="1012" y1="318" x2="1022" y2="408" stroke="#5eead4" stroke-opacity="0.45" stroke-width="2"/>
+    <circle cx="980" cy="250" r="68" fill="#5eead4" fill-opacity="0.10" stroke="#5eead4" stroke-width="3.5"/>
+
+    <!-- landmarks and measured lines -->
+    <line x1="880" y1="424" x2="1080" y2="424" stroke="#5eead4" stroke-width="3"/>
+    <line x1="912" y1="250" x2="880" y2="424" stroke="#5eead4" stroke-opacity="0.8" stroke-width="2" stroke-dasharray="4 6"/>
+    <line x1="1048" y1="250" x2="1080" y2="424" stroke="#5eead4" stroke-opacity="0.8" stroke-width="2" stroke-dasharray="4 6"/>
+    <circle cx="912" cy="250" r="8" fill="#ffffff" stroke="#5eead4" stroke-width="3"/>
+    <circle cx="1048" cy="250" r="8" fill="#ffffff" stroke="#5eead4" stroke-width="3"/>
+    <circle cx="880" cy="424" r="8" fill="#ffffff" stroke="#5eead4" stroke-width="3"/>
+    <circle cx="1080" cy="424" r="8" fill="#ffffff" stroke="#5eead4" stroke-width="3"/>
+
+    <!-- neck ratio bracket -->
+    <line x1="1180" y1="250" x2="1180" y2="424" stroke="#e2e8f0" stroke-opacity="0.7" stroke-width="2"/>
+    <line x1="1170" y1="250" x2="1190" y2="250" stroke="#e2e8f0" stroke-opacity="0.7" stroke-width="2"/>
+    <line x1="1170" y1="424" x2="1190" y2="424" stroke="#e2e8f0" stroke-opacity="0.7" stroke-width="2"/>
+    <text x="1200" y="342" font-size="17" fill="#cbd5e1" fill-opacity="0.85" font-weight="500">neck</text>
+    <text x="1200" y="364" font-size="17" fill="#cbd5e1" fill-opacity="0.85" font-weight="500">ratio</text>
+
+    <!-- legend -->
+    <circle cx="858" cy="112" r="6" fill="#0a1b26" stroke="#5eead4" stroke-width="3"/>
+    <text x="874" y="118" font-size="18" fill="#cbd5e1" font-weight="500">your baseline</text>
+    <circle cx="1012" cy="112" r="6" fill="#0a1b26" stroke="#fb923c" stroke-width="3"/>
+    <text x="1028" y="118" font-size="18" fill="#cbd5e1" font-weight="500">slouch</text>
+  </g>
+
+  <!-- text -->
+  <text x="80" y="158" font-size="20" font-weight="600" fill="#5eead4" letter-spacing="3">OPEN SOURCE  ·  v0.1</text>
+  <text x="80" y="256" font-size="80" font-weight="700" fill="#ffffff" letter-spacing="-1.5">Emotion</text>
+  <text x="80" y="342" font-size="80" font-weight="700" fill="#ffffff" letter-spacing="-1.5">Mirror</text>
+  <text x="80" y="402" font-size="29" fill="#cbd5e1">Posture and sitting-time nudges</text>
+  <text x="80" y="441" font-size="29" fill="#cbd5e1">from your webcam, on your own PC.</text>
+
+  <g font-size="20" font-weight="600">
+    <rect x="80" y="484" width="118" height="42" rx="21" fill="#5eead4" fill-opacity="0.14" stroke="#5eead4" stroke-opacity="0.6"/>
+    <text x="139" y="512" text-anchor="middle" fill="#e6fffb">Posture</text>
+    <rect x="210" y="484" width="170" height="42" rx="21" fill="#5eead4" fill-opacity="0.14" stroke="#5eead4" stroke-opacity="0.6"/>
+    <text x="295" y="512" text-anchor="middle" fill="#e6fffb">Screen distance</text>
+    <rect x="392" y="484" width="146" height="42" rx="21" fill="#5eead4" fill-opacity="0.14" stroke="#5eead4" stroke-opacity="0.6"/>
+    <text x="465" y="512" text-anchor="middle" fill="#e6fffb">Sitting time</text>
+  </g>
+
+  <text x="80" y="590" font-size="22" font-weight="500" fill="#5eead4">Your video never leaves your PC and is never saved.</text>
+</svg>
