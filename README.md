@@ -6,7 +6,7 @@
 
 [Español](README.es.md)
 
-Local-first wellbeing copilot for people who work at a computer. It uses your webcam and on-device AI ([NeuroBrix](https://neurobrix.ai)) to notice poor posture, long sitting spells, fatigue and tension, and gives you gentle, personalised nudges.
+Local-first wellbeing copilot for people who work at a computer. It uses your webcam and on-device AI ([NeuroBrix](https://neurobrix.org)) to notice poor posture, long sitting spells, fatigue and tension, and gives you gentle, personalised nudges.
 
 **Your video never leaves your PC and is never saved.**
 
