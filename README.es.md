@@ -6,7 +6,7 @@
 
 [English](README.md)
 
-Copiloto de bienestar local para personas que trabajan frente al ordenador. Usa tu cámara web y la IA local de [NeuroBrix](https://neurobrix.ai) para detectar mala postura, largos periodos sentado, fatiga y tensión, y te da avisos amables y personalizados.
+Copiloto de bienestar local para personas que trabajan frente al ordenador. Usa tu cámara web y la IA local de [NeuroBrix](https://neurobrix.org) para detectar mala postura, largos periodos sentado, fatiga y tensión, y te da avisos amables y personalizados.
 
 **Tu vídeo nunca sale de tu PC y nunca se guarda.**
 
