@@ -1,12 +1,12 @@
-# Emotion Mirror: notes for Claude Code
+# Motion Mirror: notes for Claude Code
 
 Local-first wellbeing copilot. Webcam -> signals -> YAML rules -> notification. Video never leaves the PC and is never stored. See README.md for the product and privacy promises; they are requirements, not marketing.
 
-## Architecture (src/emotion_mirror/)
+## Architecture (src/motion_mirror/)
 - `camera.py` OpenCV capture. Frames stay in memory.
 - `perception.py` MediaPipe Face + Pose Landmarker -> `Signals`. The ONLY module that imports MediaPipe.
 - `signals.py` the only data crossing out of perception: a few floats per frame.
-- `calibration.py` per-user baseline (median of a few seconds sitting well), JSON in `~/.emotion-mirror/`.
+- `calibration.py` per-user baseline (median of a few seconds sitting well), JSON in `~/.motion-mirror/`.
 - `aggregator.py` smoothing + relative metrics + continuous sitting time.
 - `rules.py` + `default_rules.yaml` YAML rules, sustain time, cooldown, hourly limit, snooze.
 - `notifier.py` desktop-notifier with print fallback.

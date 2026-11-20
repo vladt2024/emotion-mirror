@@ -1,5 +1,5 @@
-# Emotion Mirror rules (v0.1). Copy this file, edit it, and run:
-#   emotion-mirror run --rules my_rules.yaml
+# Motion Mirror rules (v0.1). Copy this file, edit it, and run:
+#   motion-mirror run --rules my_rules.yaml
 #
 # Each rule watches one metric:
 #   metric            neck_ratio_rel | tilt_dev | face_width_rel | sitting_minutes

@@ -85,7 +85,7 @@ def cmd_run(args: argparse.Namespace) -> int:
     notifier = Notifier()
     perception = Perception()
 
-    print("Emotion Mirror is running. Press Ctrl+C to stop. Video is processed in memory and never saved.")
+    print("Motion Mirror is running. Press Ctrl+C to stop. Video is processed in memory and never saved.")
     last_report = 0.0
     try:
         with Camera(args.camera) as camera:
@@ -118,7 +118,7 @@ def cmd_default_rules(_: argparse.Namespace) -> int:
 
 
 def build_parser() -> argparse.ArgumentParser:
-    parser = argparse.ArgumentParser(prog="emotion-mirror", description="Local-first wellbeing copilot.")
+    parser = argparse.ArgumentParser(prog="motion-mirror", description="Local-first wellbeing copilot.")
     parser.add_argument("--version", action="version", version=f"%(prog)s {__version__}")
     sub = parser.add_subparsers(dest="command", required=True)
 

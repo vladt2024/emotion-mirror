@@ -1,6 +1,6 @@
 import pytest
 
-from emotion_mirror.calibration import (
+from motion_mirror.calibration import (
     MIN_SAMPLES,
     Baseline,
     CalibrationError,
@@ -8,7 +8,7 @@ from emotion_mirror.calibration import (
     load_baseline,
     save_baseline,
 )
-from emotion_mirror.signals import Signals
+from motion_mirror.signals import Signals
 
 
 def frame(neck=0.5, tilt=1.0, face=0.2):

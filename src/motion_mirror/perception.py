@@ -39,7 +39,7 @@ class Perception:
         for p in (face_path, pose_path):
             if not p.exists():
                 raise ModelsMissingError(
-                    f"Missing model file {p}. Run `emotion-mirror download-models` first."
+                    f"Missing model file {p}. Run `motion-mirror download-models` first."
                 )
         self._face = vision.FaceLandmarker.create_from_options(
             vision.FaceLandmarkerOptions(

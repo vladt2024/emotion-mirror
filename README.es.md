@@ -1,8 +1,8 @@
 <p align="center">
-  <img src="docs/banner.gif" alt="Emotion Mirror: avisos de postura y de tiempo sentado desde tu webcam, en tu propio PC" width="100%">
+  <img src="docs/banner.gif" alt="Motion Mirror: avisos de postura y de tiempo sentado desde tu webcam, en tu propio PC" width="100%">
 </p>
 
-# Emotion Mirror
+# Motion Mirror
 
 [English](README.md)
 
@@ -27,7 +27,7 @@ Necesitas Python y una cámara web. Todo lo siguiente se escribe en una terminal
 
 ### 1. Instala Python
 
-Emotion Mirror necesita **Python 3.10 o superior**. Se recomienda Python 3.11 o 3.12 (con la 3.11 se ha probado).
+Motion Mirror necesita **Python 3.10 o superior**. Se recomienda Python 3.11 o 3.12 (con la 3.11 se ha probado).
 
 Primero comprueba si ya lo tienes. Abre una terminal:
 
@@ -66,12 +66,12 @@ sudo apt install python3 python3-venv python3-pip
 
 ### 2. Descarga el proyecto
 
-**Sin Git (lo más simple):** descarga <https://github.com/vladt2024/emotion-mirror/archive/refs/heads/main.zip> y descomprímelo. En Windows, clic derecho sobre el ZIP → *Extraer todo*. Obtendrás una carpeta llamada `emotion-mirror-main`.
+**Sin Git (lo más simple):** descarga <https://github.com/vladt2024/motion-mirror/archive/refs/heads/main.zip> y descomprímelo. En Windows, clic derecho sobre el ZIP → *Extraer todo*. Obtendrás una carpeta llamada `motion-mirror-main`.
 
 **Con Git:**
 
 ```
-git clone https://github.com/vladt2024/emotion-mirror.git
+git clone https://github.com/vladt2024/motion-mirror.git
 ```
 
 ### 3. Abre una terminal dentro de la carpeta del proyecto
@@ -81,21 +81,21 @@ La carpeta debe contener un archivo llamado `pyproject.toml`.
 **Windows (cmd), si lo descomprimiste en Descargas:**
 
 ```
-cd %USERPROFILE%\Downloads\emotion-mirror-main
+cd %USERPROFILE%\Downloads\motion-mirror-main
 dir pyproject.toml
 ```
 
 Si `dir` dice que no encuentra el archivo, la extracción creó una carpeta dentro de otra. Baja un nivel y comprueba otra vez:
 
 ```
-cd emotion-mirror-main
+cd motion-mirror-main
 dir pyproject.toml
 ```
 
 **macOS / Linux:**
 
 ```
-cd ~/Downloads/emotion-mirror-main
+cd ~/Downloads/motion-mirror-main
 ls pyproject.toml
 ```
 
@@ -122,7 +122,7 @@ pip install -e .
 Tras activarlo, la línea de la terminal empieza por `(.venv)`. La instalación descarga MediaPipe, OpenCV y otras librerías y tarda unos minutos. Comprueba que ha funcionado:
 
 ```
-emotion-mirror --version
+motion-mirror --version
 ```
 
 En Windows usa el Símbolo del sistema (`cmd`). En PowerShell, la política de ejecución puede bloquear la activación.
@@ -130,10 +130,10 @@ En Windows usa el Símbolo del sistema (`cmd`). En PowerShell, la política de e
 ### 5. Descarga los modelos
 
 ```
-emotion-mirror download-models
+motion-mirror download-models
 ```
 
-Descarga dos archivos de modelo pequeños de MediaPipe (cara y pose) en `~/.emotion-mirror/models` (en Windows, `C:\Users\<tú>\.emotion-mirror\models`). Se hace una sola vez. Es la única vez que el propio programa usa la red.
+Descarga dos archivos de modelo pequeños de MediaPipe (cara y pose) en `~/.motion-mirror/models` (en Windows, `C:\Users\<tú>\.motion-mirror\models`). Se hace una sola vez. Es la única vez que el propio programa usa la red.
 
 ### 6. Permite el acceso a la cámara
 
@@ -153,7 +153,7 @@ Cierra cualquier aplicación que esté usando la cámara (Teams, Zoom, WhatsApp,
 Siéntate como *quieres* sentarte: espalda apoyada, pantalla a la altura de los ojos, hombros relajados. La cámara debe ver tu cara, tus orejas y los dos hombros.
 
 ```
-emotion-mirror calibrate
+motion-mirror calibrate
 ```
 
 Una cuenta atrás de 3 segundos y luego 10 segundos de captura. Mantente natural. Termina con `Calibration saved`. Si dice que la calibración falló, ajusta la cámara o tu posición para que se vean la cara y los dos hombros, y vuelve a ejecutarlo.
@@ -163,7 +163,7 @@ Una cuenta atrás de 3 segundos y luego 10 segundos de captura. Mantente natural
 Primero una prueba segura que imprime todo en la terminal y no muestra avisos emergentes:
 
 ```
-emotion-mirror run --verbose --dry-run
+motion-mirror run --verbose --dry-run
 ```
 
 Cada 5 segundos sale una línea como:
@@ -185,7 +185,7 @@ Prueba cada postura unos 15 segundos y mira cómo se mueven los números:
 Para parar, pulsa `Ctrl+C`. Cuando los números tengan buena pinta, ejecútalo de verdad:
 
 ```
-emotion-mirror run
+motion-mirror run
 ```
 
 Añade `--verbose` para que además imprima cada aviso en la terminal, lo que ayuda si no ves los avisos emergentes.
@@ -197,29 +197,29 @@ Cada vez que abras una terminal nueva, entra en la carpeta del proyecto y activa
 **Windows (cmd):**
 
 ```
-cd %USERPROFILE%\Downloads\emotion-mirror-main
+cd %USERPROFILE%\Downloads\motion-mirror-main
 .venv\Scripts\activate
-emotion-mirror run
+motion-mirror run
 ```
 
 **macOS / Linux:**
 
 ```
-cd ~/Downloads/emotion-mirror-main
+cd ~/Downloads/motion-mirror-main
 source .venv/bin/activate
-emotion-mirror run
+motion-mirror run
 ```
 
-Si cambias de forma de sentarte (silla nueva, mesa nueva, otra posición de la cámara), vuelve a ejecutar `emotion-mirror calibrate`.
+Si cambias de forma de sentarte (silla nueva, mesa nueva, otra posición de la cámara), vuelve a ejecutar `motion-mirror calibrate`.
 
 ## Comandos
 
 | Comando | Qué hace |
 |---|---|
-| `emotion-mirror download-models` | Descarga los modelos de cara y pose (una vez). `--force` los descarga de nuevo. |
-| `emotion-mirror calibrate` | Graba tu referencia de "sentado bien". Opciones: `--seconds`, `--camera`, `--fps`. |
-| `emotion-mirror run` | Vigila la postura y el tiempo sentado y muestra avisos. |
-| `emotion-mirror default-rules` | Imprime el archivo de reglas por defecto para que lo copies y edites. |
+| `motion-mirror download-models` | Descarga los modelos de cara y pose (una vez). `--force` los descarga de nuevo. |
+| `motion-mirror calibrate` | Graba tu referencia de "sentado bien". Opciones: `--seconds`, `--camera`, `--fps`. |
+| `motion-mirror run` | Vigila la postura y el tiempo sentado y muestra avisos. |
+| `motion-mirror default-rules` | Imprime el archivo de reglas por defecto para que lo copies y edites. |
 
 Opciones de `run`:
 
@@ -234,9 +234,9 @@ Opciones de `run`:
 Haz tu propia copia de las reglas y edítala con cualquier editor de texto:
 
 ```
-emotion-mirror default-rules > my_rules.yaml
+motion-mirror default-rules > my_rules.yaml
 notepad my_rules.yaml
-emotion-mirror run --rules my_rules.yaml --verbose
+motion-mirror run --rules my_rules.yaml --verbose
 ```
 
 (`notepad` es de Windows; en otros sistemas usa `nano` o tu editor.)
@@ -258,13 +258,13 @@ Para probar rápido sin esperar, usa valores cortos en tu copia, por ejemplo `ab
 
 **`'python' no se reconoce` o se abre la Microsoft Store.** Python no está instalado o no está en el PATH. Instálalo como en el paso 1 y marca "Add python.exe to PATH". Cierra y vuelve a abrir la terminal.
 
-**`'emotion-mirror' no se reconoce`.** El entorno virtual no está activo. Ejecuta `.venv\Scripts\activate` (Windows) o `source .venv/bin/activate` (macOS/Linux) desde la carpeta del proyecto. La línea debe empezar por `(.venv)`.
+**`'motion-mirror' no se reconoce`.** El entorno virtual no está activo. Ejecuta `.venv\Scripts\activate` (Windows) o `source .venv/bin/activate` (macOS/Linux) desde la carpeta del proyecto. La línea debe empezar por `(.venv)`.
 
 **`pip install` falla con `mediapipe`.** Usa Python 3.11 o 3.12 en vez de una versión muy nueva o muy antigua, borra la carpeta `.venv` y repite el paso 4.
 
 **`Could not open camera 0`.** Casi siempre son permisos o una cámara ocupada. Sigue el paso 6, incluido el interruptor de **Python 3.x** si usas la versión de la Store, y cierra otras apps que usen la cámara. Para una webcam externa prueba `--camera 1`.
 
-**`Missing model file` o `No calibration found`.** Ejecuta `emotion-mirror download-models` y `emotion-mirror calibrate`.
+**`Missing model file` o `No calibration found`.** Ejecuta `motion-mirror download-models` y `motion-mirror calibrate`.
 
 **`Calibration failed: only N usable frames`.** No se veían bien tu cara, tus orejas o tus hombros. Aléjate de la pantalla, ilumina la cara, asegúrate de que se ven los dos hombros y reintenta.
 
@@ -272,7 +272,7 @@ Para probar rápido sin esperar, usa valores cortos en tu copia, por ejemplo `ab
 
 **Los avisos nunca saltan.** Ejecuta con `--verbose` y compara tus métricas con los umbrales de las reglas. Una regla solo salta si su condición se mantiene durante todo su `for_seconds`.
 
-**Quitarlo todo.** Borra la carpeta del proyecto y la carpeta `~/.emotion-mirror` (en Windows, `C:\Users\<tú>\.emotion-mirror`).
+**Quitarlo todo.** Borra la carpeta del proyecto y la carpeta `~/.motion-mirror` (en Windows, `C:\Users\<tú>\.motion-mirror`).
 
 ## Cómo funciona
 
@@ -311,7 +311,7 @@ Está previsto un modo sin cámara (solo actividad de teclado y ratón) para qui
 
 ## Uso previsto
 
-Emotion Mirror es una **herramienta personal para quien usa el ordenador**. No está diseñada, y no debe desplegarse, para vigilar a empleados, estudiantes ni a ningún otro tercero.
+Motion Mirror es una **herramienta personal para quien usa el ordenador**. No está diseñada, y no debe desplegarse, para vigilar a empleados, estudiantes ni a ningún otro tercero.
 
 Inferir las emociones de las personas en entornos laborales y educativos está prohibido por el Reglamento de IA de la UE. Por eso el proyecto no tiene modo administrador, ni informes multiusuario, ni forma de enviar datos a nadie, y no se aceptarán contribuciones que los añadan.
 
