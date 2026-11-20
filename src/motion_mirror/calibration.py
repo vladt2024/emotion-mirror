@@ -69,7 +69,7 @@ def save_baseline(baseline: Baseline, path: Path | None = None) -> Path:
 def load_baseline(path: Path | None = None) -> Baseline:
     path = path or baseline_path()
     if not path.exists():
-        raise CalibrationError(f"No calibration found at {path}. Run `emotion-mirror calibrate`.")
+        raise CalibrationError(f"No calibration found at {path}. Run `motion-mirror calibrate`.")
     try:
         data = json.loads(path.read_text(encoding="utf-8"))
         return Baseline(

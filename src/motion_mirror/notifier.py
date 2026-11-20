@@ -9,7 +9,7 @@ log = logging.getLogger(__name__)
 
 
 class Notifier:
-    def __init__(self, app_name: str = "Emotion Mirror"):
+    def __init__(self, app_name: str = "Motion Mirror"):
         self._loop: asyncio.AbstractEventLoop | None = None
         self._notifier = None
         try:

@@ -1,8 +1,8 @@
 import pytest
 
-from emotion_mirror.aggregator import Aggregator
-from emotion_mirror.calibration import Baseline
-from emotion_mirror.signals import Signals
+from motion_mirror.aggregator import Aggregator
+from motion_mirror.calibration import Baseline
+from motion_mirror.signals import Signals
 
 BASE = Baseline(neck_ratio=0.5, shoulder_tilt=2.0, face_width=0.2)
 

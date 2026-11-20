@@ -1,8 +1,8 @@
 import pytest
 
-from emotion_mirror.camera import CameraError
-from emotion_mirror.pipeline import MAX_CONSECUTIVE_FAILURES, iter_signals
-from emotion_mirror.signals import Signals
+from motion_mirror.camera import CameraError
+from motion_mirror.pipeline import MAX_CONSECUTIVE_FAILURES, iter_signals
+from motion_mirror.signals import Signals
 
 
 class FakeCamera:

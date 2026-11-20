@@ -61,7 +61,7 @@
 
   <!-- text -->
   <text x="80" y="158" font-size="20" font-weight="600" fill="#5eead4" letter-spacing="3">OPEN SOURCE  ·  v0.1</text>
-  <text x="80" y="256" font-size="80" font-weight="700" fill="#ffffff" letter-spacing="-1.5">Emotion</text>
+  <text x="80" y="256" font-size="80" font-weight="700" fill="#ffffff" letter-spacing="-1.5">Motion</text>
   <text x="80" y="342" font-size="80" font-weight="700" fill="#ffffff" letter-spacing="-1.5">Mirror</text>
   <text x="80" y="402" font-size="29" fill="#cbd5e1">Posture and sitting-time nudges</text>
   <text x="80" y="441" font-size="29" fill="#cbd5e1">from your webcam, on your own PC.</text>

@@ -1,8 +1,8 @@
 <p align="center">
-  <img src="docs/banner.gif" alt="Emotion Mirror: posture and sitting-time nudges from your webcam, on your own PC" width="100%">
+  <img src="docs/banner.gif" alt="Motion Mirror: posture and sitting-time nudges from your webcam, on your own PC" width="100%">
 </p>
 
-# Emotion Mirror
+# Motion Mirror
 
 [Español](README.es.md)
 
@@ -27,7 +27,7 @@ You need Python and a webcam. Everything below is typed in a terminal. The steps
 
 ### 1. Install Python
 
-Emotion Mirror needs **Python 3.10 or newer**. Python 3.11 or 3.12 is recommended (3.11 is what it was tested with).
+Motion Mirror needs **Python 3.10 or newer**. Python 3.11 or 3.12 is recommended (3.11 is what it was tested with).
 
 First check whether you already have it. Open a terminal:
 
@@ -66,12 +66,12 @@ sudo apt install python3 python3-venv python3-pip
 
 ### 2. Download the project
 
-**Without Git (simplest):** download <https://github.com/vladt2024/emotion-mirror/archive/refs/heads/main.zip> and extract it. On Windows, right-click the ZIP → *Extract All*. You get a folder called `emotion-mirror-main`.
+**Without Git (simplest):** download <https://github.com/vladt2024/motion-mirror/archive/refs/heads/main.zip> and extract it. On Windows, right-click the ZIP → *Extract All*. You get a folder called `motion-mirror-main`.
 
 **With Git:**
 
 ```
-git clone https://github.com/vladt2024/emotion-mirror.git
+git clone https://github.com/vladt2024/motion-mirror.git
 ```
 
 ### 3. Open a terminal inside the project folder
@@ -81,21 +81,21 @@ The folder must contain a file called `pyproject.toml`.
 **Windows (cmd), if you extracted into your Downloads folder:**
 
 ```
-cd %USERPROFILE%\Downloads\emotion-mirror-main
+cd %USERPROFILE%\Downloads\motion-mirror-main
 dir pyproject.toml
 ```
 
 If `dir` says the file is not found, the extraction created a folder inside a folder. Go one level down and check again:
 
 ```
-cd emotion-mirror-main
+cd motion-mirror-main
 dir pyproject.toml
 ```
 
 **macOS / Linux:**
 
 ```
-cd ~/Downloads/emotion-mirror-main
+cd ~/Downloads/motion-mirror-main
 ls pyproject.toml
 ```
 
@@ -122,7 +122,7 @@ pip install -e .
 After activating, your prompt starts with `(.venv)`. The install downloads MediaPipe, OpenCV and a few other libraries and takes a few minutes. Check that it worked:
 
 ```
-emotion-mirror --version
+motion-mirror --version
 ```
 
 Use Command Prompt (`cmd`) on Windows. In PowerShell, activation can be blocked by the execution policy.
@@ -130,10 +130,10 @@ Use Command Prompt (`cmd`) on Windows. In PowerShell, activation can be blocked 
 ### 5. Download the models
 
 ```
-emotion-mirror download-models
+motion-mirror download-models
 ```
 
-This fetches two small MediaPipe model files (face and pose) into `~/.emotion-mirror/models` (on Windows, `C:\Users\<you>\.emotion-mirror\models`). You do it once. It is the only time the program itself uses the network.
+This fetches two small MediaPipe model files (face and pose) into `~/.motion-mirror/models` (on Windows, `C:\Users\<you>\.motion-mirror\models`). You do it once. It is the only time the program itself uses the network.
 
 ### 6. Allow camera access
 
@@ -153,7 +153,7 @@ Close any app that is using the camera (Teams, Zoom, WhatsApp, Telegram, a brows
 Sit the way you *want* to sit: back supported, screen at eye level, shoulders relaxed. Your face, ears and both shoulders must be visible to the camera.
 
 ```
-emotion-mirror calibrate
+motion-mirror calibrate
 ```
 
 A 3-second countdown, then 10 seconds of capture. Stay natural. It ends with `Calibration saved`. If it says calibration failed, adjust the camera or your position so your face and both shoulders are visible, and run it again.
@@ -163,7 +163,7 @@ A 3-second countdown, then 10 seconds of capture. Stay natural. It ends with `Ca
 First a safe test that prints everything to the terminal and shows no popups:
 
 ```
-emotion-mirror run --verbose --dry-run
+motion-mirror run --verbose --dry-run
 ```
 
 Every 5 seconds you get a line like:
@@ -185,7 +185,7 @@ Try each posture for about 15 seconds and watch the numbers move:
 Stop with `Ctrl+C`. When the numbers look right, run it for real:
 
 ```
-emotion-mirror run
+motion-mirror run
 ```
 
 Add `--verbose` to also print each nudge in the terminal, which helps if you do not see popups.
@@ -197,29 +197,29 @@ Every time you open a new terminal, go to the project folder and activate the en
 **Windows (cmd):**
 
 ```
-cd %USERPROFILE%\Downloads\emotion-mirror-main
+cd %USERPROFILE%\Downloads\motion-mirror-main
 .venv\Scripts\activate
-emotion-mirror run
+motion-mirror run
 ```
 
 **macOS / Linux:**
 
 ```
-cd ~/Downloads/emotion-mirror-main
+cd ~/Downloads/motion-mirror-main
 source .venv/bin/activate
-emotion-mirror run
+motion-mirror run
 ```
 
-If you sit differently (new chair, new desk, new camera position), run `emotion-mirror calibrate` again.
+If you sit differently (new chair, new desk, new camera position), run `motion-mirror calibrate` again.
 
 ## Commands
 
 | Command | What it does |
 |---|---|
-| `emotion-mirror download-models` | Downloads the face and pose models (once). `--force` downloads again. |
-| `emotion-mirror calibrate` | Records your "sitting well" reference. Options: `--seconds`, `--camera`, `--fps`. |
-| `emotion-mirror run` | Watches posture and sitting time and shows nudges. |
-| `emotion-mirror default-rules` | Prints the default rules file so you can copy and edit it. |
+| `motion-mirror download-models` | Downloads the face and pose models (once). `--force` downloads again. |
+| `motion-mirror calibrate` | Records your "sitting well" reference. Options: `--seconds`, `--camera`, `--fps`. |
+| `motion-mirror run` | Watches posture and sitting time and shows nudges. |
+| `motion-mirror default-rules` | Prints the default rules file so you can copy and edit it. |
 
 Options for `run`:
 
@@ -234,9 +234,9 @@ Options for `run`:
 Make your own copy of the rules and edit it with any text editor:
 
 ```
-emotion-mirror default-rules > my_rules.yaml
+motion-mirror default-rules > my_rules.yaml
 notepad my_rules.yaml
-emotion-mirror run --rules my_rules.yaml --verbose
+motion-mirror run --rules my_rules.yaml --verbose
 ```
 
 (`notepad` is Windows; use `nano` or your editor elsewhere.)
@@ -258,13 +258,13 @@ To test quickly without waiting, use short values in your copy, for example `abo
 
 **`'python' is not recognized` or the Microsoft Store opens.** Python is not installed or not on the PATH. Install it as in step 1 and tick "Add python.exe to PATH". Close and reopen the terminal.
 
-**`'emotion-mirror' is not recognized`.** The virtual environment is not active. Run `.venv\Scripts\activate` (Windows) or `source .venv/bin/activate` (macOS/Linux) from the project folder. The prompt must start with `(.venv)`.
+**`'motion-mirror' is not recognized`.** The virtual environment is not active. Run `.venv\Scripts\activate` (Windows) or `source .venv/bin/activate` (macOS/Linux) from the project folder. The prompt must start with `(.venv)`.
 
 **`pip install` fails on `mediapipe`.** Use Python 3.11 or 3.12 instead of a very new or very old version, then delete the `.venv` folder and repeat step 4.
 
 **`Could not open camera 0`.** Almost always permissions or a busy camera. Follow step 6, including the **Python 3.x** switch if you use the Store version of Python, and close other apps that use the camera. For an external webcam try `--camera 1`.
 
-**`Missing model file` or `No calibration found`.** Run `emotion-mirror download-models` and `emotion-mirror calibrate`.
+**`Missing model file` or `No calibration found`.** Run `motion-mirror download-models` and `motion-mirror calibrate`.
 
 **`Calibration failed: only N usable frames`.** Your face, ears or shoulders were not visible enough. Sit farther from the screen, light your face, make sure both shoulders are in view, and retry.
 
@@ -272,7 +272,7 @@ To test quickly without waiting, use short values in your copy, for example `abo
 
 **Nudges never fire.** Run with `--verbose` and compare your metrics with the rule thresholds. A rule only fires if its condition stays true for its whole `for_seconds`.
 
-**Remove everything.** Delete the project folder and the `~/.emotion-mirror` folder (on Windows, `C:\Users\<you>\.emotion-mirror`).
+**Remove everything.** Delete the project folder and the `~/.motion-mirror` folder (on Windows, `C:\Users\<you>\.motion-mirror`).
 
 ## How it works
 
@@ -311,7 +311,7 @@ A camera-free mode (keyboard and mouse activity only) is planned as an alternati
 
 ## Intended use
 
-Emotion Mirror is a **personal tool for the person using the computer**. It is not designed, and must not be deployed, to monitor employees, students or any other third party.
+Motion Mirror is a **personal tool for the person using the computer**. It is not designed, and must not be deployed, to monitor employees, students or any other third party.
 
 Inferring emotions of people in workplaces and educational settings is prohibited under the EU AI Act. For that reason the project has no administrator mode, no multi-user reporting and no way to send data to anyone else, and contributions that add them will not be accepted.
 

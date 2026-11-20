@@ -50,7 +50,7 @@ class Alert:
 
 
 def default_rules_text() -> str:
-    return resources.files("emotion_mirror").joinpath("default_rules.yaml").read_text("utf-8")
+    return resources.files("motion_mirror").joinpath("default_rules.yaml").read_text("utf-8")
 
 
 def load_rules(path: Path | None = None) -> tuple[list[Rule], Settings]:
@@ -98,7 +98,7 @@ def parse_rules(data: dict) -> tuple[list[Rule], Settings]:
                 below=None if below is None else float(below),
                 for_seconds=for_seconds,
                 cooldown_minutes=cooldown,
-                title=str(raw.get("title", "Emotion Mirror")),
+                title=str(raw.get("title", "Motion Mirror")),
                 messages=tuple(messages),
             )
         )

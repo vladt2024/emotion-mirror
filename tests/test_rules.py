@@ -2,7 +2,7 @@ import random
 
 import pytest
 
-from emotion_mirror.rules import RuleEngine, RulesError, Settings, load_rules, parse_rules
+from motion_mirror.rules import RuleEngine, RulesError, Settings, load_rules, parse_rules
 
 
 def make_engine(max_per_hour=4):

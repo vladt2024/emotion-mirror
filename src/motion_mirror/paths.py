@@ -1,4 +1,4 @@
-"""Where Emotion Mirror keeps its (local) files. Override with EMOTION_MIRROR_HOME."""
+"""Where Motion Mirror keeps its (local) files. Override with MOTION_MIRROR_HOME."""
 
 from __future__ import annotations
 
@@ -7,8 +7,8 @@ from pathlib import Path
 
 
 def home_dir() -> Path:
-    override = os.environ.get("EMOTION_MIRROR_HOME")
-    return Path(override) if override else Path.home() / ".emotion-mirror"
+    override = os.environ.get("MOTION_MIRROR_HOME")
+    return Path(override) if override else Path.home() / ".motion-mirror"
 
 
 def models_dir() -> Path:
